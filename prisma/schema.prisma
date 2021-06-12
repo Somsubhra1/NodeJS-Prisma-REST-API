@@ -16,5 +16,18 @@ model User {
   id Int @default(autoincrement()) @id // @id specifies unique identifier, @default() value adds default values to field, here we autoincrement it using autoincrement()
 
   username String @db.VarChar(255) @unique // @db.VarChar(255) specifies varchar limit
+  posts Post[] // user can have multiple posts hence it's an array
+
+}
+
+model Post {
+  @@map(name: "post")
+  id Int @id @default(autoincrement())
+  title String
+  post String @db.VarChar(500)
+  created_at DateTime @default(now()) // automatically adds current date time
+  updated_at DateTime @updatedAt // @updatedAt automatically adds the update time to current time
+  user User @relation(fields: [user_id], references: [id]) // User model field  referencing to id of user model at user_id field of Post model
+  user_id Int
 
 }
