@@ -52,6 +52,10 @@ router.post("/", async (req, res) => {
     data: {
       username,
     },
+    // Select returns only the selected fields after create
+    select: {
+      username: true,
+    },
   });
 
   res.json(newUser);
