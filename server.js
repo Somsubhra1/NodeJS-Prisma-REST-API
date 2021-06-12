@@ -10,6 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", require("./routes/user"));
+app.use("/api/post", require("./routes/post"));
 
 const PORT = process.env.PORT || 5000;
 
