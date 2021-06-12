@@ -9,3 +9,11 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+// Define models like this.
+model User {
+  id Int @default(autoincrement()) @id // @id specifies unique identifier, @default() value adds default values to field, here we autoincrement it using autoincrement()
+
+  username String @db.VarChar(255) @unique // @db.VarChar(255) specifies varchar limit
+
+}
