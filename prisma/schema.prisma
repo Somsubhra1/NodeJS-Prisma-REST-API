@@ -12,6 +12,7 @@ generator client {
 
 // Define models like this.
 model User {
+  @@map(name: "user") // map helps to rename the table. by default it takes the model name as table name
   id Int @default(autoincrement()) @id // @id specifies unique identifier, @default() value adds default values to field, here we autoincrement it using autoincrement()
 
   username String @db.VarChar(255) @unique // @db.VarChar(255) specifies varchar limit
